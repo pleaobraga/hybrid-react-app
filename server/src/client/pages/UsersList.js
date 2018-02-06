@@ -25,8 +25,11 @@ class UsersList extends Component {
 
 const maptateToProps = ({ users }) => ({ users })
 
-export const loadData = (store) => {
+const loadData = (store) => {
     return store.dispatch(fetchUsers())
 }
 
-export default connect(maptateToProps, { fetchUsers })(UsersList)
+export default {
+    loadData, 
+    component: connect(maptateToProps, { fetchUsers })(UsersList)
+}
