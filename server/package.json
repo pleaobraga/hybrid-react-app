@@ -2,12 +2,17 @@
   "name": "hybrid-react-app",
   "version": "1.0.0",
   "description": "\"Project to learn about hybrid rect spp\"",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:build-server": "webpack --config webpack.server.js --watch",
-    "dev:build-client": "webpack --config webpack.client.js --watch"
+    "dev:build-client": "webpack --config webpack.client.js --watch",
+    "build": "NODE_ENV=production webpack --config webpack.server.js -p && webpack --config webpack.client.js -p",
+    "start": "node build/bundle.js"
+  },
+  "engines": {
+    "node": "8.9.4"
   },
   "author": "",
   "license": "ISC",
